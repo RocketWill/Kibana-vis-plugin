@@ -3,56 +3,24 @@
 import React, { Component } from 'react';
 // 引入 ECharts 主模块
 import echarts from 'echarts/lib/echarts';
-// 引入柱状图
-//import  'echarts/lib/chart/bar';
 import 'echarts';
 // 引入提示框和标题组件
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 
-var a  = 1;
-
+//引入es
 var elasticsearch = require('elasticsearch-browser/elasticsearch.js');
+//創建 bar chart client
 var client = new elasticsearch.Client({
   host: 'localhost:9200'
 });
-
+//創建 sankey diagram client
 var client2 = new elasticsearch.Client({
   host: 'localhost:9200'
 });
 
-console.log(client2);
-console.log(client);
-/*
-client.search({
-  index: 'bank',
-    size: 10,
-    body: {
-    "query":
-        {
-            "match": {
-                "gender":"M"
-            }   
-        },
-    }
-}).then(function (body) {
-   var a = body.hits.hits;
-   var item;
-   for (item in a){
-     console.log(a[item]["_source"]["firstname"]);
-   }
-   
-   
-}, function (error) {
-  console.trace(error.message);
-});
-*/
-
-//var elasticsearch = require('elasticsearch-browser/');
-//var client = new elasticsearch.Client();
-
-// We define an EsConnector module that depends on the elasticsearch module.     
-
+//console.log(client2);
+//console.log(client);
 
 import {
   EuiPage,
@@ -85,6 +53,7 @@ export class Main extends React.Component {
       銀行帳戶存款 Bar 圖
     */
     client.search({
+      // query
       index: 'bank',
         size: 20,
         body: {
@@ -97,7 +66,7 @@ export class Main extends React.Component {
         }
     }).then(function (body) {
        var a = body.hits.hits;
-       console.log(a);
+       //console.log(a);
        var dataNameArr = [];
        var dataBalanceArr = [];
        var item;
@@ -140,6 +109,7 @@ export class Main extends React.Component {
     index: 'sankeytest6',
       size: 1000,
       body: {
+        //聚合
         "aggs" : {
           "table": {
             "composite" : {
@@ -155,7 +125,8 @@ export class Main extends React.Component {
       }
   }).then(function (body) {
     var sankey = body.aggregations.table.buckets;
-    console.log(sankey);
+    //console.log(sankey);
+    //創建繪製的json格式
     var sankeyJson = {nodes:[],links:[]};
 
     var item;
@@ -196,9 +167,10 @@ export class Main extends React.Component {
       sankeyJson.links.push({"source":linkMidArr[itemNode],"target":linkDesArr[itemNode],"value":linkValueArr[itemNode]});
     }
 
-    console.log(sankeyJson);
+    //console.log(sankeyJson);
     var mySankey = echarts.init(document.getElementById('sankey'));
 
+    //開始繪製桑基圖
     mySankey.setOption({
       title: {
           text: 'Sankey Diagram'
