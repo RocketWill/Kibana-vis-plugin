@@ -32,6 +32,8 @@
     "expect.js": "^0.3.1"
   },
   "dependencies": {
-    "echarts": "^4.2.0-rc.2"
+    "echarts": "^4.2.0-rc.2",
+    "elasticsearch": "^15.2.0",
+    "elasticsearch-browser": "^15.2.0"
   }
 }
