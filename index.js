@@ -10,6 +10,7 @@ export default function (kibana) {
         description: 'An awesome Kibana plugin',
         main: 'plugins/echarts_test_2/app',
         styleSheetPath: require('path').resolve(__dirname, 'public/app.scss'),
+        styleSheetPath: require('path').resolve(__dirname, 'public/app.css'),
       },
       hacks: [
         'plugins/echarts_test_2/hack'

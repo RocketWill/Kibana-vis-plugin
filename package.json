@@ -33,7 +33,9 @@
   },
   "dependencies": {
     "echarts": "^4.2.0-rc.2",
+    "echarts-gl": "^1.1.1",
     "elasticsearch": "^15.2.0",
-    "elasticsearch-browser": "^15.2.0"
+    "elasticsearch-browser": "^15.2.0",
+    "jquery": "^3.3.1"
   }
 }
