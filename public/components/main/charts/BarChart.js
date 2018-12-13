@@ -60,7 +60,8 @@ export default class BarChart {
                     lineStyle:{
                         color:'#A892FE'
                     }
-                  }
+                  },
+                  
 
               },
               yAxis: {

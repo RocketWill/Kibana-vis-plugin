@@ -28,7 +28,8 @@ import ThreeD from "./charts/ThreeD";
 import RealSankey from "./charts/RealSankey";
 
 import ThreeDScatterPlot from "./charts/ThreeDSactterPlot";
-
+import Radar from "./charts/Radar";
+import Calendar from './charts/Calendar';
 
 //引入 es 自定義 html tag
 import {
@@ -91,6 +92,10 @@ export class Main extends React.Component {
 
     /* 3D圖 */    
     ThreeDScatterPlot.create();
+
+    Radar.create();
+
+    Calendar.create();
   
   }
   render() {
@@ -115,27 +120,50 @@ export class Main extends React.Component {
 
             <EuiFlexGroup>
 
-            <EuiFlexItem style={{ maxWidth: 700 }}>
+            <EuiFlexItem style={{ maxWidth: 650 }}>
               <EuiPanel grow={false} id="bar-panel">
                 <div id="main" style={{ width: "100%", height: 400 }}></div>
               </EuiPanel>
             </EuiFlexItem>
 
-            <EuiFlexItem style={{ maxWidth: 700 }}>
+            <EuiFlexItem style={{ maxWidth: 650 }}>
               <EuiPanel grow={false} id="sankey-panel">
                 <div id="sankey" style={{ width: "100%", height: 400 }}></div>
               </EuiPanel>
             </EuiFlexItem>
 
-
             </EuiFlexGroup>
 
             <EuiSpacer size="l" />
-            <EuiFlexItem>
-              <EuiPanel grow={false} id="threeD-panel" style={{ maxWidth: 1300 }}>
+            <EuiFlexGroup>
+            <EuiFlexItem style={{ maxWidth: 650 }}>
+              <EuiPanel grow={false} id="threeD-panel">
                 <div id="threeD" style={{ width: "100%", height: 400 }}></div>
               </EuiPanel>
-            </EuiFlexItem>    
+            </EuiFlexItem>
+
+            <EuiFlexItem style={{ maxWidth: 650 }}>
+              <EuiPanel grow={false} id="threeDScatterPlot-panel">
+                <div id="threeDScatterPlot" style={{ width: "100%", height: 400 }}></div>
+              </EuiPanel>
+            </EuiFlexItem>
+            </EuiFlexGroup>
+
+            <EuiSpacer size="l" />
+            <EuiFlexGroup>
+            <EuiFlexItem style={{ maxWidth: 650 }}>
+              <EuiPanel grow={false} id="radar-panel">
+                <div id="radar" style={{ width: "100%", height: 400 }}></div>
+              </EuiPanel>
+            </EuiFlexItem>
+            <EuiFlexItem style={{ maxWidth: 650 }}>
+              <EuiPanel grow={false} id="calendar-panel">
+                <div id="calendar" style={{ width: "100%", height: 400 }}></div>
+              </EuiPanel>
+            </EuiFlexItem>
+            </EuiFlexGroup>
+            
+                 
 
 
             <EuiSpacer size="l" />
@@ -145,12 +173,6 @@ export class Main extends React.Component {
               </EuiPanel>
             </EuiFlexItem> 
 
-             <EuiSpacer size="l" />
-            <EuiFlexItem>
-              <EuiPanel grow={false} id="threeDScatterPlot-panel" style={{ maxWidth: 1300 }}>
-                <div id="threeDScatterPlot" style={{ width: "100%", height: 600 }}></div>
-              </EuiPanel>
-            </EuiFlexItem> 
 
             </EuiPageContentBody>
           </EuiPageContent>
