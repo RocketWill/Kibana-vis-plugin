@@ -27,6 +27,8 @@ import ThreeD from "./charts/ThreeD";
 //創建真實數據 sankey diagram client
 import RealSankey from "./charts/RealSankey";
 
+import ThreeDScatterPlot from "./charts/ThreeDSactterPlot";
+
 
 //引入 es 自定義 html tag
 import {
@@ -86,6 +88,9 @@ export class Main extends React.Component {
     /*      靜態3D圖      */
     /*********************/
     ThreeD.create();
+
+    /* 3D圖 */    
+    ThreeDScatterPlot.create();
   
   }
   render() {
@@ -137,6 +142,13 @@ export class Main extends React.Component {
             <EuiFlexItem>
               <EuiPanel grow={false} id="real-sankey-panel" style={{ maxWidth: 1300 }}>
                 <div id="real-sankey" style={{ width: "100%", height: 600 }}></div>
+              </EuiPanel>
+            </EuiFlexItem> 
+
+             <EuiSpacer size="l" />
+            <EuiFlexItem>
+              <EuiPanel grow={false} id="threeDScatterPlot-panel" style={{ maxWidth: 1300 }}>
+                <div id="threeDScatterPlot" style={{ width: "100%", height: 600 }}></div>
               </EuiPanel>
             </EuiFlexItem> 
 

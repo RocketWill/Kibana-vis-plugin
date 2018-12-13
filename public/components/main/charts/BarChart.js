@@ -90,6 +90,7 @@ export default class BarChart {
                     */
                    
                    normal: {
+                     /*
                       color: function(params) {
                         // build a color map as your need.
                         var colorList = [
@@ -102,9 +103,17 @@ export default class BarChart {
                         }
                         
                       }
-                    }
+                      */
+                     color: new echarts.graphic.LinearGradient(
+                      0, 0, 0, 1,
+                        [
+                          {offset: 0, color: '#8762FF'},
+                          {offset: 1, color: '#4E6FFA'}
+                        ]
+                    )
+                  },
                     
-                  }
+                }
               }]
           });
   

@@ -28,7 +28,7 @@
 .font-white, #font-white {
   color: rgba(255, 255, 255, 0.8); }
 
-#bar-panel, #sankey-panel, #threeD-panel, #real-sankey-panel{
+#bar-panel, #sankey-panel, #threeD-panel, #real-sankey-panel, #threeDScatterPlot-panel{
   background-color: rgba(35, 17, 77, 0.8);
   border-color: rgba(0, 0, 0, 0);
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
