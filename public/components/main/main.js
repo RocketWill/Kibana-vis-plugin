@@ -30,6 +30,7 @@ import RealSankey from "./charts/RealSankey";
 import ThreeDScatterPlot from "./charts/ThreeDSactterPlot";
 import Radar from "./charts/Radar";
 import Calendar from './charts/Calendar';
+import Parallel from './charts/Parallel';
 
 //引入 es 自定義 html tag
 import {
@@ -96,6 +97,8 @@ export class Main extends React.Component {
     Radar.create();
 
     Calendar.create();
+
+    Parallel.create();
   
   }
   render() {
@@ -163,6 +166,12 @@ export class Main extends React.Component {
             </EuiFlexItem>
             </EuiFlexGroup>
             
+            <EuiSpacer size="l" />
+            <EuiFlexItem>
+              <EuiPanel grow={false} id="parallel-panel" style={{ maxWidth: 1300 }}>
+                <div id="parallel" style={{ width: "100%", height: 400 }}></div>
+              </EuiPanel>
+            </EuiFlexItem> 
                  
 
 
