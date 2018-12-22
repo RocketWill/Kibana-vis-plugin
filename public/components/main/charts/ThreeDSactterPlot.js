@@ -44,15 +44,15 @@ export default class StaticSankey {
                 splitLine: {
                     lineStyle: {
                         // 使用深浅的间隔色
-                        color: ['#453893']
+                        color: ['rgba(0,0,0,0)']
                     }
                 },
                 nameTextStyle: {
-                    color: ['#ffffff']
+                    color: ['rgba(0,0,0,0)']
                 },
                 axisLine:{
                     lineStyle:{
-                    color:'#A892FE'
+                    color:'rgba(0,0,0,0)'
                     }
                 }
             },
@@ -62,15 +62,15 @@ export default class StaticSankey {
                 splitLine: {
                     lineStyle: {
                         // 使用深浅的间隔色
-                        color: ['#453893']
+                        color: ['rgba(0,0,0,0)']
                     }
                 },
                 nameTextStyle: {
-                    color: ['#ffffff']
+                    color: ['rgba(0,0,0,0)']
                 },
                 axisLine:{
                     lineStyle:{
-                    color:'#A892FE'
+                    color:'rgba(0,0,0,0)'
                     }
                 }
             },
@@ -80,15 +80,15 @@ export default class StaticSankey {
                 splitLine: {
                     lineStyle: {
                         // 使用深浅的间隔色
-                        color: ['#453893']
+                        color: ['rgba(0,0,0,0)']
                     }
                 },
                 nameTextStyle: {
-                    color: ['#ffffff']
+                    color: ['rgba(0,0,0,0)']
                 },
                 axisLine:{
                     lineStyle:{
-                    color:'#A892FE'
+                    color:'rgba(0,0,0,0)'
                     }
                 }
             },

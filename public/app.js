@@ -6,6 +6,7 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import 'ui/autoload/styles';
 import './less/main.less';
 import { Main } from './components/main';
+import {Test} from "./components/test";
 
 const app = uiModules.get('apps/echartsTest2');
 
@@ -25,6 +26,7 @@ function RootController($scope, $element, $http) {
 
   // render react to DOM
   render(<Main title="echarts_test2" httpClient={$http} />, domNode);
+  //render(<Test title="echarts_test2" httpClient={$http} />, domNode);
 
   // unmount react on controller destroy
   $scope.$on('$destroy', () => {
