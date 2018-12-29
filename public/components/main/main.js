@@ -130,26 +130,23 @@ export class Main extends React.Component {
     // });
 
     
-    BarChartTest.create();
-    /*********************/
-    /* 銀行帳戶存款 Bar 圖 */
-    /*********************/
-    BarChart.create();
+    // BarChartTest.create();
+    // /*********************/
+    // /* 銀行帳戶存款 Bar 圖 */
+    // /*********************/
+    // BarChart.create();
 
-    /*********************/
-    /*       桑基圖       */
-    /*********************/
-    StaticSankey.create();
-
-    /*********************/
-    /*    真實數據桑基圖    */
-    /*********************/
-    RealSankey.create();
+    // /*********************/
+    // /*       桑基圖       */
+    // /*********************/
+    // StaticSankey.create();
   
-    /*********************/
-    /*      靜態3D圖      */
-    /*********************/
-    ThreeD.create();
+    // /*      靜態3D圖      */
+    // ThreeD.create();
+
+    /*    真實數據桑基圖    */
+    //參數：start, end, index（默認start, end為全部時間、index為winlog*）
+    RealSankey.create();
 
     /* 3D圖 */    
     ThreeDScatterPlot.create();

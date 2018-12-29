@@ -3,7 +3,7 @@ import 'echarts/lib/component/title';
 import echarts from 'echarts/lib/echarts';
 import 'echarts';
 export default class StaticSankey {
-    static create(start='default', end='default') {
+    static create(start='default', end='default', queryIndex="winlog*") {
         var elasticsearch = require('elasticsearch-browser/elasticsearch.js');
         var client3 = new elasticsearch.Client({
             host: 'localhost:9200'
@@ -13,7 +13,7 @@ export default class StaticSankey {
     /*********************/
       if (start=='default' && end=='default'){
         client3.search({
-          index: 'winlogbeat5*',
+          index: queryIndex,
             size: 1000,
             body: {
               //聚合
@@ -304,7 +304,7 @@ export default class StaticSankey {
        });
       }else{
         client3.search({
-          index: 'winlogbeat5*',
+          index: queryIndex,
             size: 1000,
             body: {
               "query": {
