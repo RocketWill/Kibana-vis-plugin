@@ -5,10 +5,14 @@ import 'echarts';
 export default class StaticSankey {
     static create() {
         var calendar = [
-            ['host1', 'user1', 1],
-            ['host2', 'user1', 9],
-            ['host5', 'user3', 3],
-            ['host2', 'user2', 2]
+            [new Date("2017/11/9 12:00:00"), 'user1', 1],
+            [new Date("2017/11/10 12:00:00"), 'user1', 9],
+            [new Date("2017/11/16 12:00:00"), 'user3', 10],
+            [new Date("2017/11/10 12:00:00"), 'user2', 2],
+            [new Date("2017/11/12 12:00:00"), 'user3', 1],
+            [new Date("2017/11/16 12:00:00"), 'user1', 2],
+            [new Date("2017/11/17 12:00:00"), 'user3', 20],
+            [new Date("2017/11/23 12:00:00"), 'user4', 7]
         ]
         var calendarChart = echarts.init(document.getElementById('calendar'));
         var option = {
@@ -31,8 +35,8 @@ export default class StaticSankey {
             // },
             xAxis: {
                 type: 'category',
-                data: ['host1', 'host2', 'host3', 'host4',
-                       'host5', 'host6', 'host7', 'host8'],
+                // data: [new Date("2017/11/9 12:00:00"), new Date("2017/11/10 12:00:00"), new Date("2017/11/11 12:00:00"), new Date("2017/11/12 12:00:00"),
+                // new Date("2017/11/13 12:00:00"), new Date("2017/11/14 12:00:00"), new Date("2017/11/15 12:00:00"), new Date("2017/11/16 12:00:00")],
                 splitArea: {
                     show: true,
                     
@@ -56,7 +60,7 @@ export default class StaticSankey {
             },
             yAxis: {
                 type: 'category',
-                data: ['user1', 'user2', 'user3', 'user4'],
+                // data: ['user1', 'user2', 'user3', 'user4'],
                 splitArea: {
                     show: true,
                     areaStyle:{
@@ -76,6 +80,16 @@ export default class StaticSankey {
                   
 
             },
+            dataZoom: [
+                {
+                    type: 'slider',
+                    textStyle: {color: '#b7b7b7'},
+                    backgroundColor: '#201546',
+                    borderColor: 'rgba(255,255,255,0.2)',
+                    fillerColor:'rgba(255,255,255,0.2)',
+                    start: 0
+                }
+            ],
             
             // calendar: {
             //     left: 'center',
