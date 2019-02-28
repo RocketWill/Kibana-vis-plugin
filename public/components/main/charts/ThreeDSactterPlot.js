@@ -3,8 +3,9 @@ import 'echarts/lib/component/title';
 import echarts from 'echarts/lib/echarts';
 import 'echarts';
 import DataSource from "./data/scatter3D"
+import 'underscore/underscore-min'
 
-export default class StaticSankey {
+export default class ThreeDScatterPlot {
     static create() {
         var elasticsearch = require('elasticsearch-browser/elasticsearch.js');
         
@@ -149,5 +150,15 @@ export default class StaticSankey {
 
         // use configuration item and data specified to show chart
         scattar3dChart.setOption(option);
+
+        
+//在这里做一个点击事件的监听，绑定的是eConsole方法
+
+scattar3dChart.on('click', function(param) {
+    var t = (_.invert(words))[param["value"]];
+    console.log(t); //重要的参数都在这里！
+})
+
+
     }
 }

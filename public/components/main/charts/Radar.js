@@ -3,8 +3,16 @@ import 'echarts/lib/component/title';
 import echarts from 'echarts/lib/echarts';
 import 'echarts';
 export default class Radar {
-    static create(){
-        var radar = [[0.5, 0.8, 0.6, 0.46, 0.18, 0.6, 0.1]];
+    static create(radar_data = undefined){
+        var radar = undefined
+        if (radar_data == undefined){
+            radar = [
+                [0.5, 0.8, 0.6, 0.46, 0.18, 0.6, 0.1], 
+            ];
+        }else{
+            radar = radar_data
+        }
+        
         var radarChart = echarts.init(document.getElementById('radar'));
         var option = {
             title: {

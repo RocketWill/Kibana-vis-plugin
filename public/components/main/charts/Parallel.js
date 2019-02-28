@@ -5,12 +5,21 @@ import 'echarts';
 import DataSource from "./data/scatter3D"
 
 export default class Parallel {
-    static create() {
-        var parallel = [
-            [1,55,9,0.3,0.9],
-            [0.5,5,30,0.9, 0.4],
-            [0.1,3,92,0.3, 0.2],
-        ]
+    static create(parallel_data=undefined) {
+
+        var parallel = undefined
+
+        if(parallel_data==undefined){
+            parallel = [
+                [1,55,9,0.3,0.9],
+                [0.5,5,30,0.9, 0.4],
+                [0.1,3,92,0.3, 0.2],
+                [0.8, 30, 0.28, 33,0.3]
+            ]
+        }else{
+            parallel = parallel_data
+        }
+
         var parallelChart = echarts.init(document.getElementById('parallel'));
         var option = {
             color: ['#FF5C79','#FF7E53'],

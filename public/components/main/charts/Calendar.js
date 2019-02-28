@@ -2,7 +2,15 @@ import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';  
 import echarts from 'echarts/lib/echarts';
 import 'echarts';
-export default class StaticSankey {
+
+
+import UserRadar from '../charts/Radar';
+import UserParallel from '../charts/Parallel';
+
+//引入jQuery
+import $ from 'jquery';
+import "../jquery"
+export default class Calendar {
     static create() {
         var calendar = [
             [new Date("2017/11/9 12:00:00"), 'user1', 1],
@@ -14,6 +22,30 @@ export default class StaticSankey {
             [new Date("2017/11/17 12:00:00"), 'user3', 20],
             [new Date("2017/11/23 12:00:00"), 'user4', 7]
         ]
+
+        //使用者發生錯誤事件總覽（靜態數據）
+        var user_event_info = {
+            'user1':['大悲咒','金剛經','四庫全書','南唔阿密陀佛'],
+            'user2':['大白菜','小白菜','中白菜'],
+            'user3':['後庭','嘴巴','外景隊'],
+            'user4':['魯夫','砲機','甩炮'],
+        }
+
+        var user_radar_info = {
+            'user1':[[0.5, 0.8, 0.6, 0.46, 0.18, 0.6, 0.1]],
+            'user2':[[0.2, 0.4, 0.7, 0.1, 0.7, 0.2]],
+            'user3':[[0.12, 0.45, 0.72, 0.19, 0.56,0.34]],
+            'user4':[[0.67, 0.98, 0.12, 0.34, 0.61,0.11]]
+        }
+
+        var user_parallel_info = {
+            'user1': [[1,55,9,0.3,0.9]],
+            'user2':[[0.5,5,30,0.9, 0.4]],
+            'user3':[[0.1,3,92,0.3, 0.2]],
+            'user4':[[0.8, 30, 0.28, 33,0.3]]
+        }
+        
+
         var calendarChart = echarts.init(document.getElementById('calendar'));
         var option = {
             //color: ['#4E6FFA', '#8762FF','#FF5C79','#FF7E53'],
@@ -110,7 +142,9 @@ export default class StaticSankey {
             //     }
             // },
 
-            series: [
+
+
+            series: [ //根據事件數量設置不同點點大小
                 {
                     name: '登录事件',
                     type: 'scatter',
@@ -155,5 +189,35 @@ export default class StaticSankey {
             ]
         };
         calendarChart.setOption(option);
+
+        //設置點擊事件
+        calendarChart.on('click',function(params){
+            var name = params.data[1];
+            //日誌模塊//
+            //獲取主頁面的日誌模塊
+            var des = $('#description');
+            var event_list = user_event_info[name]
+
+            des.empty();
+            des.append("<p>"+name+"@localhost"+"</p>");
+
+            //獲取單一用戶事件
+            for( var i = 0; i < event_list.length; i += 1 ){
+                //console.log(event_list[i]);
+                des.append("<p>"+event_list[i]+"</p>");
+            }
+
+
+
+            //雷達模塊//
+            //獲取主頁面的雷達模塊
+            UserRadar.create(user_radar_info[name]);
+            console.log(user_radar_info[name]);
+
+
+            //平行座標軸模塊//
+            UserParallel.create(user_parallel_info[name]);
+            console.log(user_parallel_info[name]);
+        })
     }
 }

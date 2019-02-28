@@ -34,6 +34,7 @@ import Calendar from './charts/Calendar';
 import Parallel from './charts/Parallel';
 import BarChartTest from "./charts/BarChartTest";
 import ScatterPlot from './charts/ScatterPlot';
+import AllUserEvent from './charts/SetUserEvent';
 
 
 import Helmet from 'react-helmet';
@@ -105,6 +106,13 @@ export class Main extends React.Component {
     var e = $('#time-end').text();
     BarChartTest.create(s,e);
     RealSankey.create(s,e);
+    
+  }
+
+  showAllUserInfo(){
+    Parallel.create();
+    Radar.create();
+    AllUserEvent.set();
   }
 
   componentDidMount() {
@@ -277,9 +285,42 @@ export class Main extends React.Component {
             <EuiSpacer size="l" />
 
 
-          
             <EuiFlexGroup>
-            
+            <EuiFlexItem style={{ maxWidth: 600 }}>
+              <EuiPanel grow={false} id="calendar-panel">
+                <div id="calendar-reset-btn" onClick={this.showAllUserInfo}>All</div>
+                <div id="calendar" style={{ width: "100%", height: 400 }}></div>
+              </EuiPanel>
+            </EuiFlexItem>
+
+            <EuiFlexItem style={{ maxWidth: 320 }}>
+            <EuiPanel grow={false} id="description-panel">
+                <div id="description" style={{ width: "100%", height: 400 }}>
+                <p>
+            UserName@HostName
+        </p>
+        <p>
+            WINDOWS_FILE:Execute[system].dll </p>
+        <p>
+            WINDOWS_FILE:Execute[system].dll </p>
+        <p id="error-event"> WINDOWS_FILE:Execute[temp] </p>
+        <p>
+            WINDOWS_FILE:Permissions[windows error reporting report queue] </p>
+                </div>
+              </EuiPanel>
+            </EuiFlexItem>
+
+            <EuiFlexItem style={{ maxWidth: 400 }}>
+            <EuiPanel grow={false} id="radar-panel">
+                <div id="radar" style={{ width: "100%", height: 400 }}></div>
+              </EuiPanel>
+            </EuiFlexItem>
+            </EuiFlexGroup>
+
+<EuiSpacer size="l" />
+
+            <EuiFlexGroup>
+
             <EuiFlexItem style={{ maxWidth: 650 }} id='none'>
               <EuiPanel grow={false} id="threeD-panel">
                 <div id="threeD" style={{ width: "100%", height: 400 }}></div>
@@ -294,33 +335,13 @@ export class Main extends React.Component {
 
             <EuiSpacer size="l" />
             
-            <EuiFlexGroup>
-            <EuiFlexItem style={{ maxWidth: 675 }}>
-              <EuiPanel grow={false} id="radar-panel">
-                <div id="radar" style={{ width: "100%", height: 400 }}></div>
-              </EuiPanel>
-            </EuiFlexItem>
-            <EuiFlexItem style={{ maxWidth: 675 }}>
-              <EuiPanel grow={false} id="calendar-panel">
-                <div id="calendar" style={{ width: "100%", height: 400 }}></div>
-              </EuiPanel>
-            </EuiFlexItem>
-            </EuiFlexGroup>
             
-            <EuiSpacer size="l" />
             <EuiFlexItem grow={8} style={{ maxWidth: 1370 }}>
               <EuiPanel grow={false} id="parallel-panel">
                 <div id="parallel" style={{ width: "100%", height: 400 }}></div>
               </EuiPanel>
             </EuiFlexItem> 
                  
-
-
-            <EuiSpacer size="l" />
-            
-
-
-            
 
 
             </EuiPageContentBody>

@@ -2,7 +2,7 @@ import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';  
 import echarts from 'echarts/lib/echarts';
 import 'echarts';
-export default class StaticSankey {
+export default class ThreeD {
     static create() {
         var elasticsearch = require('elasticsearch-browser/elasticsearch.js');
         

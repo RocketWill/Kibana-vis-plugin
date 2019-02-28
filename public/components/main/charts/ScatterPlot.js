@@ -3,7 +3,7 @@ import 'echarts/lib/component/title';
 import echarts from 'echarts/lib/echarts';
 import 'echarts';
 import DataSource from './data/scatter3D';
-export default class BarChart {
+export default class ScatterPlot {
     
     static create(start='default',end='default') {
         var report1, report2, report3;
