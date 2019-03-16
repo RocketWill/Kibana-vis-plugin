@@ -8,6 +8,9 @@ export default class Radar {
         if (radar_data == undefined){
             radar = [
                 [0.5, 0.8, 0.6, 0.46, 0.18, 0.6, 0.1], 
+                [0.2, 0.4, 0.7, 0.1, 0.7, 0.2],
+                [0.12, 0.45, 0.72, 0.19, 0.56,0.34],
+                [0.67, 0.98, 0.12, 0.34, 0.61,0.11]
             ];
         }else{
             radar = radar_data

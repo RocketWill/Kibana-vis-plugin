@@ -25,10 +25,50 @@ export default class Calendar {
 
         //使用者發生錯誤事件總覽（靜態數據）
         var user_event_info = {
-            'user1':['大悲咒','金剛經','四庫全書','南唔阿密陀佛'],
-            'user2':['大白菜','小白菜','中白菜'],
-            'user3':['後庭','嘴巴','外景隊'],
-            'user4':['魯夫','砲機','甩炮'],
+            'user1':[
+                "WINDOWS_FILE:Execute[temp]",
+                "WINDOWS_PROCESS:Spawn[temp]",
+                "WINDOWS_FILE:Write[cuckoo]",
+                "WINDOWS_FILE:Permissions[cuckoo]",
+                "WINDOWS_FILE:Writing file to temporary directory",
+                "WINDOWS_FILE:Write[cuckoo]",
+                "WINDOWS_FILE:Permissions[cuckoo]",
+                "WINDOWS_FILE:Writing file to temporary directory",
+                "WINDOWS_FILE:Permissions[cuckoo]",
+                "WINDOWS_FILE:Writing file to temporary directory",
+            ],
+            'user2':[
+                "WINDOWS_FILE:Write[appdata (local)].db",
+                "WINDOWS_FILE:Write[appdata (local)].db",
+                "WINDOWS_FILE:Write[appdata (local)].db",
+                "WINDOWS_FILE:Write[appdata (local)].db",
+                "WINDOWS_FILE:Write[appdata (local)].db",
+                "WINDOWS_FILE:Write[appdata (local)].db",
+                "WINDOWS_FILE:Write[appdata (local)].db",
+                "WINDOWS_FILE:Execute[system].dll",
+                "WINDOWS_FILE:Execute[system].dll",
+                "WINDOWS_FILE:Execute[system].dll"
+            ],
+            'user3':[
+                "WINDOWS_FILE:Execute[winsxs].dll",
+                "WINDOWS_FILE:Execute[system].dll",
+                "WINDOWS_FILE:Execute[system].dll",
+                "WINDOWS_FILE:Execute[system].dll",
+                "WINDOWS_FILE:Execute[system].dll",
+                "WINDOWS_FILE:Permissions[program data].dat",
+                "WINDOWS_FILE:Writing file to temporary directory"
+            ],
+            'user4':[
+                "WINDOWS_FILE:Execute[system].dll",
+                "WINDOWS_FILE:Permissions[windows error reporting report queue]",
+                "WINDOWS_FILE:Write[windows error reporting report queue]",
+                "WINDOWS_FILE:Deleting edited file",
+                "WINDOWS_FILE:Write[windows error reporting report queue]",
+                "WINDOWS_FILE:Permissions[program data]",
+                "WINDOWS_FILE:Write[program data]",
+                "WINDOWS_FILE:Deleting edited file",
+                "WINDOWS_FILE:Write[program data]",
+            ],
         }
 
         var user_radar_info = {
@@ -39,10 +79,10 @@ export default class Calendar {
         }
 
         var user_parallel_info = {
-            'user1': [[1,55,9,0.3,0.9]],
-            'user2':[[0.5,5,30,0.9, 0.4]],
-            'user3':[[0.1,3,92,0.3, 0.2]],
-            'user4':[[0.8, 30, 0.28, 33,0.3]]
+            'user1':[['user1', 1,55,9,0.3,0.9]],
+            'user2':[['user2', 0.5,5,30,0.9, 0.4]],
+            'user3':[['user3', 0.1,3,92,0.3, 0.2]],
+            'user4':[['user4', 0.8, 30, 0.28, 33,0.3]]
         }
         
 
@@ -204,7 +244,8 @@ export default class Calendar {
             //獲取單一用戶事件
             for( var i = 0; i < event_list.length; i += 1 ){
                 //console.log(event_list[i]);
-                des.append("<p>"+event_list[i]+"</p>");
+                var append = $("<p id='fade_in'>"+event_list[i]+"</p>");
+                des.append(append.fadeIn(800));
             }
 
 

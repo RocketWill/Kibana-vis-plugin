@@ -41,6 +41,9 @@ import Helmet from 'react-helmet';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
+
+import New from '../new_module/new';
+
 //引入 es 自定義 html tag
 import {
   EuiPage,
@@ -341,6 +344,8 @@ export class Main extends React.Component {
                 <div id="parallel" style={{ width: "100%", height: 400 }}></div>
               </EuiPanel>
             </EuiFlexItem> 
+
+            <New />
                  
 
 

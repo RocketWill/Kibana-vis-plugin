@@ -11,13 +11,20 @@ export default class Parallel {
 
         if(parallel_data==undefined){
             parallel = [
-                [1,55,9,0.3,0.9],
-                [0.5,5,30,0.9, 0.4],
-                [0.1,3,92,0.3, 0.2],
-                [0.8, 30, 0.28, 33,0.3]
-            ]
+                ['user1', 1,55,9,0.3,0.9],
+                ['user2', 0.5,5,30,0.9, 0.4],
+                ['user3', 0.1,3,92,0.3, 0.2],
+                ['user4', 0.8, 30, 0.28, 33,0.3]
+            ];
+            
         }else{
-            parallel = parallel_data
+            parallel = parallel_data;
+        }
+
+        //添加parallel的用戶標籤
+        const category_data = []
+        for (let i=0; i<parallel.length; i++){
+            category_data.push(parallel[i][0]);
         }
 
         var parallelChart = echarts.init(document.getElementById('parallel'));
@@ -31,11 +38,17 @@ export default class Parallel {
                 },
               },
             parallelAxis: [
-                { dim: 0, name: '登录', inverse: true, nameLocation: 'start' },
-                { dim: 1, name: '进程' },
-                { dim: 2, name: '文件' },
-                { dim: 3, name: '注册表' },
-                { dim: 4, name: '网络' }
+                {
+                    dim: 0,
+                    name: '使用者',
+                    type: 'category',
+                    data:category_data
+                },
+                { dim: 1, name: '登录', inverse: true, nameLocation: 'start' },
+                { dim: 2, name: '进程' },
+                { dim: 3, name: '文件' },
+                { dim: 4, name: '注册表' },
+                { dim: 5, name: '网络' }
             ],
             parallel: {
                 left: '5%',
@@ -66,9 +79,11 @@ export default class Parallel {
                         textStyle: {
                             color: '#B7B7B7'
                         }
-                    }
+                    },
+                    triggerEvent:true
                 }
             },
+            
             series: [
                 {
                     name: '',
@@ -92,5 +107,8 @@ export default class Parallel {
             ]
         };
         parallelChart.setOption(option);
+        parallelChart.on('click',function(params){
+            console.log(params.value);
+        })
     }
 }

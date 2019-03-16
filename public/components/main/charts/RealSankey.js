@@ -302,7 +302,8 @@ export default class RealSankey {
        }, function (error) {
          console.trace(error.message);
        });
-      }else{
+      }
+      else{
         client3.search({
           index: queryIndex,
             size: 1000,
@@ -556,7 +557,7 @@ export default class RealSankey {
                       if (params["dataType"] != "node"){
                         return params["data"]["source"]+" 到 "+params["data"]["target"]+" | 總量: "+params["data"]["value"]+" | 佔比: "+Math.round(((params["data"]["value"]/totalDataNumber)*100)/2)+"%";
                       }else{
-                        if (totalNodeNumber[params["data"]["name"]] != null){
+                        if (totalNodeNumber[params["data"]["name"]] != undefined){
                           return params["data"]["name"]+"總數: "+totalNodeNumber[params["data"]["name"]]+" | 佔比: "+Math.round(((totalNodeNumber[params["data"]["name"]]/totalDataNumber*100)/2))+"%";
                         }else{
                           return ("還沒做好ＸＤ");
